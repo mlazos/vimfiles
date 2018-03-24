@@ -28,3 +28,14 @@ function MyDiff()
   silent execute '!' . cmd . ' ' . opt . arg1 . ' ' . arg2 . ' > ' . arg3 . eq
 endfunction
 
+colorscheme vim-code-dark
+syntax enable
+set tabstop=4
+set softtabstop=4
+set expandtab
+set number
+set showcmd
+set cursorline
+set showmatch
+set hlsearch
+set autoindent
