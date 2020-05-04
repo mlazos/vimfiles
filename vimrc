@@ -64,11 +64,12 @@ nnoremap b <s-b>
 nnoremap <silent><nowait> [ {
 nnoremap <silent><nowait> ] }
 
-xmap ae :EasyAlign 2/\w\+/dal <CR><bar> gv <bar> :EasyAlign */\[/rm0 <CR><bar> gv <bar> :EasyAlign -/\w\+/dalrm0 <CR>
+xmap aa :EasyAlign 2/\w\+/dal <CR><bar> gv <bar> :EasyAlign */\[/rm0 <CR><bar> gv <bar> :EasyAlign -/\w\+/dalrm0 <CR>
 
-xmap ap :EasyAlign /(/rm0 <CR>
-
+xmap acp :EasyAlign /)/rm0lm0 <CR>
+xmap aop :EasyAlign /(/rm0 <CR>
 xmap ac :EasyAlign /,/lm0 <CR>
+xmap alw :EasyAlign -/\w\+/dalrm0 <CR>
 
 function! MakeBracketMaps()
     nnoremap <silent><nowait><buffer> [ :<c-u>exe 'normal '.v:count.'{'<cr>
