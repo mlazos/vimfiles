@@ -1,0 +1,16 @@
+let $VIMRUNTIME ="C:/Program Files (x86)/Vim/vim81"
+
+"source $VIMRUNTIME/vimrc_example.vim
+
+set tabstop=4
+set softtabstop=4
+set shiftwidth=4
+set expandtab
+set number
+set showcmd
+set cursorline
+set hlsearch
+set autoindent
+
+noremap e $
+noremap q ^
