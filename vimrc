@@ -75,17 +75,17 @@ set backupdir=~/.vim_backups//
 set directory=~/.vim_backups//
 set undodir=~/.vim_backups//
 
-# ycm
+" ycm
 let g:rustfmt_autosave = 1
 let g:ycm_autoclose_preview_window_after_completion = 1
 set pythonthreedll=python37.dll
 set completeopt-=preview
 
-# Autopep8
+" Autopep8
 let g:autopep8_disable_show_diff=1
 silent autocmd BufWritePost *.py Autopep8
 
-# Syntastic
+" Syntastic
 set statusline+=%#warningmsg#
 set statusline+=%{SyntasticStatuslineFlag()}
 set statusline+=%*
@@ -94,3 +94,5 @@ let g:syntastic_always_populate_loc_list = 1
 let g:syntastic_auto_loc_list = 0
 let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 0
+
+:set cmdheight=2
