@@ -6,7 +6,10 @@ set rtp+=~/vimfiles/bundle/Vundle.vim
 call vundle#begin()
 Plugin 'VundleVim/Vundle.vim'
 Plugin 'junegunn/vim-easy-align'
-
+Plugin 'rust-lang/rust.vim'
+Plugin 'valloric/youcompleteme'
+Plugin 'tell-k/vim-autopep8'
+Plugin 'vim-syntastic/syntastic'
 call vundle#end()
 
 source $VIMRUNTIME/vimrc_example.vim
@@ -55,32 +58,39 @@ hi CursorLine cterm=NONE ctermbg=darkgray
 set showmatch
 set hlsearch
 set autoindent
-set smartindent 
+set smartindent
 
 
-nnoremap ; :
-nnoremap w <s-w>
-nnoremap b <s-b>
-nnoremap <silent><nowait> [ {
-nnoremap <silent><nowait> ] }
+noremap e $
+noremap q ^
 
 xmap aa :EasyAlign 2/\w\+/dal <CR><bar> gv <bar> :EasyAlign */\[/rm0 <CR><bar> gv <bar> :EasyAlign -/\w\+/dalrm0 <CR>
 
 xmap acp :EasyAlign /)/rm0lm0 <CR>
 xmap aop :EasyAlign /(/rm0 <CR>
 xmap ac :EasyAlign /,/lm0 <CR>
-xmap alw :EasyAlign -/\w\+/dalrm0 <CR>
-
-function! MakeBracketMaps()
-    nnoremap <silent><nowait><buffer> [ :<c-u>exe 'normal '.v:count.'{'<cr>
-    nnoremap <silent><nowait><buffer> ] :<c-u>exe 'normal '.v:count.'}'<cr>
-endfunction
-
-augroup bracketmaps
-    autocmd!
-    autocmd FileType * call MakeBracketMaps()
-augroup END
+xmap alw :EasyAlign -/\w\+[,\?;\?]\?/dalrm0 <CR>
 
 set backupdir=~/.vim_backups//
 set directory=~/.vim_backups//
 set undodir=~/.vim_backups//
+
+# ycm
+let g:rustfmt_autosave = 1
+let g:ycm_autoclose_preview_window_after_completion = 1
+set pythonthreedll=python37.dll
+set completeopt-=preview
+
+# Autopep8
+let g:autopep8_disable_show_diff=1
+silent autocmd BufWritePost *.py Autopep8
+
+# Syntastic
+set statusline+=%#warningmsg#
+set statusline+=%{SyntasticStatuslineFlag()}
+set statusline+=%*
+
+let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_auto_loc_list = 0
+let g:syntastic_check_on_open = 1
+let g:syntastic_check_on_wq = 0
