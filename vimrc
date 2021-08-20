@@ -1,7 +1,5 @@
 set nocompatible
 
-let $VIMRUNTIME ="C:/Program Files (x86)/Vim/vim81"
-set rtp+=$VIMRUNTIME
 set rtp+=~/vimfiles/bundle/Vundle.vim
 call vundle#begin()
 Plugin 'VundleVim/Vundle.vim'
@@ -11,9 +9,6 @@ Plugin 'valloric/youcompleteme'
 Plugin 'tell-k/vim-autopep8'
 Plugin 'vim-syntastic/syntastic'
 call vundle#end()
-
-source $VIMRUNTIME/vimrc_example.vim
-"source $VIMRUNTIME/mswin.vim
 
 set encoding=utf-8
 set list listchars=tab:→\ ,eol:↲,nbsp:␣,space:·,trail:•,extends:⟩,precedes:⟨
@@ -78,6 +73,8 @@ set undodir=~/.vim_backups//
 " ycm
 let g:rustfmt_autosave = 1
 let g:ycm_autoclose_preview_window_after_completion = 1
+let g:ycm_global_ycm_extra_conf = '~/.vim/bundle/YouCompleteMe/third_party/ycmd/examples/.ycm_extra_conf.py'
+let g:ycm_confirm_extra_conf = 0
 set pythonthreedll=python37.dll
 set completeopt-=preview
 
